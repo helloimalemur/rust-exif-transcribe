@@ -1,9 +1,13 @@
 
 use std::*;
+use std::path::Path;
 use exif::Reader;
 
 pub fn test_grab_exif_and_print() {
-    for path in &["image.NEF"] {
+    let p = Path::new("./");
+    for path in &["./image.NEF"] {
+
+
         let file = std::fs::File::open(path).unwrap();
         let mut bufreader = std::io::BufReader::new(&file);
         let exifreader = exif::Reader::new();
